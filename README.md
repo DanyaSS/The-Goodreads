@@ -1,5 +1,20 @@
-# mean-stack-registration-login-example
+# Install NodeJS on Windows
+Download the latest stable release of NodeJS from https://nodejs.org and install using all the default options.
 
-MEAN Stack User Registration and Login Example & Tutorial
+# Install MongoDB on Windows
+Download the current stable release of MongoDB from https://www.mongodb.org/downloads and install using the "Complete" setup type and all the default options.
 
-To see a demo and further details go to http://jasonwatmore.com/post/2015/12/09/mean-stack-user-registration-and-login-example-tutorial
+# Create the MongoDB data directory
+Create an empty folder at "C:\data\db".
+
+In BASH
+`$ cd /c`
+`$ mkdir -p /C/data/db`
+
+Start MongoDB Server on Windows
+Start the MongoDB server by running "mongod.exe" from the command line, "mongod.exe" is located in "C:\Program Files\MongoDB\Server\[MONGODB VERSION]\bin", for example for version 3.2 the following command will start MongoDB:
+
+`$ "/C/Program Files/MongoDB/Server/3.4/bin/mongod"`
+
+Start NodeJS server from the project folder
+`$ node server.js`

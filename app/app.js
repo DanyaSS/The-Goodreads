@@ -24,6 +24,13 @@
                 controller: 'Account.IndexController',
                 controllerAs: 'vm',
                 data: { activeTab: 'account' }
+            })
+            .state('books', {
+                url: '/books',
+                templateUrl: 'books/index.html',
+                controller: 'Books.IndexController',
+                controllerAs: 'vm',
+                data: { activeTab: 'books' }
             });
     }
 
