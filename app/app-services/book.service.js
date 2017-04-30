@@ -9,12 +9,18 @@
         var service = {};
 
         service.Search = Search;
+        service.Get = Get;
     
         return service;
 
         function Search(q, page) {
             console.log('Book service search [%s] page [%s]', q, page);
-            return $http.post('/api/books/search', {q: q, page: page}).then(handleSuccess, handleError);
+            return $http.post('/api/books/search', {q, page}).then(handleSuccess, handleError);
+        }
+
+        function Get(isbn13) {
+            console.log('Book service get [%s]', isbn13);
+            return $http.post('/api/books/get', {isbn13}).then(handleSuccess, handleError);
         }
         
         // private functions

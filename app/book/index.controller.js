@@ -3,17 +3,25 @@
 
     angular
         .module('app')
-        .controller('Books.IndexController', Controller);
+        .controller('Book.IndexController', Controller);
 
-    function Controller($window, BookService, FlashService) {
+    function Controller($stateParams, BookService, FlashService) {
         var vm = this;
 
-        vm.searchBook = searchBook;
-        vm.searchResult = null;
+        vm.book = null;
+
+        console.log(arguments)
 
         initController();
 
         function initController() {
+            BookService.Get($stateParams.book)
+                .then(function (data) {
+                    console.log('Books controller get Success', data);
+                    vm.book = data.data[0];
+                }).catch(function (data) {
+                    FlashService.Error(data);
+                });
         }
 
         function searchBook(q, page) {
@@ -51,9 +59,6 @@
                 })
                 .catch(function (error) {
                     FlashService.Error(error);
-                })
-                .finally(function () {
-                    vm.searching = false;
                 });
         }
     }

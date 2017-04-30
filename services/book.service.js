@@ -8,6 +8,7 @@ var parseString = require('xml2js').parseString;
 var service = {};
 
 service.search = search;
+service.get = get;
 module.exports = service;
 
 function search(q, page) {
@@ -28,6 +29,26 @@ function search(q, page) {
     })
     .catch(function (error) {
     	console.log('Server service book search failure');
+        deferred.reject(error);
+    });
+
+    return deferred.promise;
+}
+
+function get(isbn13) {
+    var deferred = Q.defer();
+
+    console.log('Server service book get for [%s]', isbn13);
+
+    axios.request({
+    	url: 'http://isbndb.com/api/v2/json/' + config.isbndbKey + '/book/' + isbn13
+	})
+    .then(function (response) {
+    	console.log('Server service book get sucess');
+    	deferred.resolve(response.data);
+    })
+    .catch(function (error) {
+    	console.log('Server service book get failure');
         deferred.reject(error);
     });
 
