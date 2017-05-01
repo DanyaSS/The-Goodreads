@@ -20,7 +20,8 @@
     "mongoskin": "^2.1.0",
     "q": "^1.4.1",
     "rootpath": "^0.1.2",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
   },
   "license": "MIT"
 }
