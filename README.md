@@ -16,5 +16,9 @@ Start the MongoDB server by running "mongod.exe" from the command line, "mongod.
 
 `$ "/C/Program Files/MongoDB/Server/3.4/bin/mongod"`
 
+# Install NodeJS dependencies
+
+`$ npm install`
+
 Start NodeJS server from the project folder
 `$ node server.js`
