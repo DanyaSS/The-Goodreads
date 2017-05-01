@@ -1,7 +1,6 @@
 ﻿{
-    "connectionString": "mongodb://localhost:27017/mean-stack-registration-login-example",
+    "connectionString": "mongodb://localhost:27017/thegoodreads",
     "apiUrl": "http://localhost:3000/api",
-    "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
-    "goodreadsdevkey": "n0RzJpL33507fo2H4bAfMg",
+    "secret": "ASDIOUHJ08dasuouh120ASDU8ioh12bnejasBF)+*U 12hionads",
     "isbndbKey": "JM6LFWKN"
 }

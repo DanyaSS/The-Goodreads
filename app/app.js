@@ -38,6 +38,27 @@
                 controller: 'Book.IndexController',
                 controllerAs: 'vm',
                 data: { activeTab: 'book' }
+            })
+            .state('shelves', {
+                url: '/shelves',
+                templateUrl: 'shelves/index.html',
+                controller: 'Shelves.IndexController',
+                controllerAs: 'vm',
+                data: { activeTab: 'shelves' }
+            })
+            .state('shelves/create', {
+                url: '/shelves/create',
+                templateUrl: 'shelves/create.html',
+                controller: 'Shelves.IndexController',
+                controllerAs: 'vm',
+                data: { activeTab: 'shelves' }
+            })
+            .state('shelves/edit', {
+                url: '/shelves/edit/:_id',
+                templateUrl: 'shelves/edit.html',
+                controller: 'Shelves.IndexController',
+                controllerAs: 'vm',
+                data: { activeTab: 'shelves' }
             });
     }
 

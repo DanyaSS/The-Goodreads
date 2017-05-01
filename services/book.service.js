@@ -3,7 +3,6 @@ var _ = require('lodash');
 var Q = require('q');
 var rp = require('request-promise');
 var axios = require('axios');
-var parseString = require('xml2js').parseString;
 
 var service = {};
 

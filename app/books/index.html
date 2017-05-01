@@ -21,11 +21,12 @@
                     <th>Cover</th>
                     <th>Title</th>
                     <th>Author</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="book in vm.searchResult.data">
-                    <td>
+                    <td class="col-md-1">
                         <a ui-sref='book({book: book.isbn13})'>
                             <img class="thumbnail" src="http://covers.openlibrary.org/b/isbn/{{book.isbn13}}-S.jpg" />
                         </a>
@@ -33,6 +34,19 @@
                     <td><a ui-sref='book({book: book.isbn13})'>{{book.title}}</a></td>
                     <td>
                         <span ng-repeat="author in book.author_data">{{author.name}}{{$last ? '' : ', '}}</span>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu{{$index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Add to shelve
+                            <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu{{$index}}">
+                                <li ng-repeat="shelve in vm.shelves">
+                                    <a ng-click="vm.addToShelve(shelve._id, book)">{{shelve.name}}</a>
+                                </li>
+                            </ul>
+                        </div>  
                     </td>
                 </tr>
             </tbody>

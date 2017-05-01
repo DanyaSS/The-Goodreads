@@ -5,15 +5,25 @@
         .module('app')
         .controller('Books.IndexController', Controller);
 
-    function Controller($window, BookService, FlashService) {
+    function Controller($window, BookService, ShelveService, FlashService) {
         var vm = this;
 
         vm.searchBook = searchBook;
+        vm.addToShelve = addToShelve;
         vm.searchResult = null;
+        vm.shelves = null;
 
         initController();
 
         function initController() {
+            ShelveService.GetAll()
+                .then(function (data) {
+                    console.log('Books controller got all shelves', data.length);
+                    vm.shelves = data;
+                })
+                .catch(function (error) {
+                    FlashService.Error(error);
+                });
         }
 
         function searchBook(q, page) {
@@ -54,6 +64,16 @@
                 })
                 .finally(function () {
                     vm.searching = false;
+                });
+        }
+
+        function addToShelve(shelveId, book) {
+            ShelveService.AddBook(shelveId, book)
+                .then(function (data) {
+                    console.log('Books controller added book to shelve');
+                })
+                .catch(function (error) {
+                    FlashService.Error(error);
                 });
         }
     }
