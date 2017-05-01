@@ -5,19 +5,14 @@
 </div>
 
 <div ng-if="vm.shelves.length" class="animate-if">
-
-
     <div ng-repeat="shelve in vm.shelves">
-        <h2>{{shelve.name}}</h2>
-        <a ui-sref='shelves/edit/{{shelve._id}}'>Edit</a>
-        <a ng-click="vm.delete(shelve._id)">Delete</a>
+        <h2>{{shelve.name}} <small><a ng-click="vm.delete(shelve._id)">Delete</a></small></h2>
         <div class="row">
-          <div class="col-sm-6 col-md-4" ng-repeat="book in shelve.books">
+          <div class="col-sm-3 col-md-3" ng-repeat="book in shelve.books">
             <div class="thumbnail">
               <img class="thumbnail" src="http://covers.openlibrary.org/b/isbn/{{book.isbn13}}-M.jpg" />
               <div class="caption">
                 <h3>{{book.title}}</h3>
-                <p>{{book.summary}}</p>
                 <p>
                     <a class="btn btn-primary" role="button" ng-click="vm.removeBook(shelve._id, book.isbn13)">Remove</a>
                 </p>

@@ -6,7 +6,7 @@
             <input type="text" id="q" class="form-control" ng-model="vm.book.q" required />
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.searchBook()">Search</button>
+            <button class="btn btn-primary" ng-click="vm.searchBook()">Search <span ng-class="{hidden: !vm.searching}" class="fa fa-circle-o-notch fa-spin" style="font-size: 14px"></span></button>
         </div>
     </form>
 
@@ -35,7 +35,7 @@
                     <td>
                         <span ng-repeat="author in book.author_data">{{author.name}}{{$last ? '' : ', '}}</span>
                     </td>
-                    <td>
+                    <td class="col-md-1">
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu{{$index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Add to shelve

@@ -71,6 +71,7 @@
             ShelveService.AddBook(shelveId, book)
                 .then(function (data) {
                     console.log('Books controller added book to shelve');
+                    FlashService.Success('Book "' + book.title + '" was sucessfully added to shelve');
                 })
                 .catch(function (error) {
                     FlashService.Error(error);
