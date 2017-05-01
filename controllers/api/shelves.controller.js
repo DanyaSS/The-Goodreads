@@ -8,7 +8,6 @@ router.post('/', createShelve);
 router.post('/:_id/addBook', addBook);
 router.delete('/:_id/removeBook/:bookId', removeBook);
 router.get('/', getAll);
-router.get('/:_id', getShelve);
 router.put('/:_id', updateShelve);
 router.delete('/:_id', deleteShelve);
 
@@ -18,20 +17,6 @@ function createShelve(req, res) {
     service.create(req.user.sub, req.body)
         .then(function () {
             res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
-
-function getShelve(req, res) {
-    service.getById(req.user.sub)
-        .then(function (user) {
-            if (user) {
-                res.send(user);
-            } else {
-                res.sendStatus(404);
-            }
         })
         .catch(function (err) {
             res.status(400).send(err);
