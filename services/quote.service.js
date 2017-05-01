@@ -14,14 +14,14 @@ function get(isbn13) {
     console.log('Server service quote get');
 
     axios.request({
-        url: 'http://quotes.rest/qod.json?category=inspire'
+        url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
     })
     .then(function (response) {
         console.log('Server service quote get sucess');
         deferred.resolve(response.data);
     })
     .catch(function (error) {
-        console.log('Server service quote get failure', error);
+        console.log('Server service quote get failure');
         deferred.reject(error);
     });
 

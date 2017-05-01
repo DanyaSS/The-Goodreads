@@ -19,14 +19,14 @@
                 vm.user = user;
             });
 
-            QuoteService.GetQuote().then(function (quote) {
-                try {
-                    vm.quote = quote.contents.quotes[0];
-                } catch(e) {
-                    console.error('Unable to get quote');
-                    console.error(e);
-                }
-            });
+            // QuoteService.GetQuote().then(function (quote) {
+            //     try {
+            //         vm.quote = quote[0];
+            //     } catch(e) {
+            //         console.error('Unable to get quote');
+            //         console.error(e);
+            //     }
+            // });
         }
     }
 
